@@ -16,7 +16,7 @@ const Restaurants = () => {
   //fetcher
   //);
 
-  const { data, error } = useSWR(`https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/`, fetcher);
+  const { data, error, isValidating, mutate } = useSWR(`https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/`, fetcher);
 
   const handleMutate = () => {
     mutate();
