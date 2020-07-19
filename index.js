@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import "./style.css";
 import axios from "axios";
+import Restaurants from "./Restaurants";
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class App extends Component {
         <p>
           <code>Testing: mutate()</code>
         </p>
+        <Restaurants />
         <button
           onClick={e => {
             e.preventDefault(), this.getRestaurants();
@@ -52,7 +54,7 @@ class App extends Component {
           {stores &&
             stores.map(store => {
               return (
-                <p>{store.slug}</p>
+                <p key={store.id}>{store.slug}</p>
               );
             })}
         </div>
