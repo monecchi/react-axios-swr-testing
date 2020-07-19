@@ -1,3 +1,20 @@
 h1, p {
   font-family: Lato;
 }
+
+a, a:hover {
+  color: blueviolet;
+  text-decoration: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
