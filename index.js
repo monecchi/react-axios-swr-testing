@@ -55,8 +55,8 @@ export const App = () => {
             return (
                             
               <li key={store.id}>
-                {store.slug}
-                <span>Aberto: { aberto == 1 ? "SIM" : "NÃO" }</span>
+                Loja: <span className="text-capitalize">{store.slug}</span>
+                <p>Aberto: { aberto == 1 ? "SIM" : "NÃO" }</p>
               </li>
               
             );
