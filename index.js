@@ -37,7 +37,7 @@ export const App = () => {
       <p>
         <code>Testing: mutate()</code>
       </p>
-      {/*<Restaurants />*/}
+      <Restaurants />
       <button
         onClick={e => {
           e.preventDefault(), getRestaurants();
