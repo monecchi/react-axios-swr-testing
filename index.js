@@ -16,7 +16,7 @@ export const App = () => {
     return axios
       .get("https://pizzariameurancho.com.br/wp-json/mrp/v1/stores")
       .then(response => {
-        console.log(response);
+        //console.log(response);
         setAppState({
           stores: response.data,
           loading: false
