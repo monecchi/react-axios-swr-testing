@@ -1,28 +1,34 @@
 import React, { Component } from "react";
-import { getRestaurants } from "./fetchRestaurantData";
+import { getAllRestaurants } from "./fetchRestaurantData";
 
 const Restaurants = () => {
+  const allRestaurants = [];
 
-  const { data, error, isValidating, mutate } = getRestaurants();
+  const { stores, isLoading, isError, isValidating } = getAllRestaurants();
 
   const handleMutate = () => {
     mutate();
   };
 
   if (error) return "An error has occurred.";
-  if (!data) return "Loading...";
-  if (data) {
-    let city = data.data.slug;
-    let aberto = data[city].is_open;
-  }
+  if (isValidating) return "Validating...";
+  if (!stores) return "Loading...";
+
   return (
     <div>
-      <h1 className="text-capitalize">{data.city}</h1>
-      <p>{data[city].formatted_address}</p>
-      <strong>{data[city].formatted_phone}</strong>{" "}
-      <strong>{data[city].today.city}</strong>{" "}
-      <strong>Aberto: {aberto == 1 ? "SIM" : "NÃO"}</strong>
-      <div>
+      {stores.map(store => {
+        const city = store.slug;
+        let aberto = store[city].is_open;
+        return (
+          <div key={store.id} classname="store-card">
+            <h1 className="text-capitalize">{store.city}</h1>
+            <p>{store[city].formatted_address}</p>
+            <strong>{store[city].formatted_phone}</strong>
+            <strong>{store[city].today.name}</strong>
+            <strong>Aberto: {aberto == 1 ? "SIM" : "NÃO"}</strong>
+          </div>
+        );
+      })}
       <button
         onClick={e => {
           e.preventDefault(), handleMutate();
@@ -30,9 +36,8 @@ const Restaurants = () => {
       >
         Refresh
       </button>
-      
+
       {isValidating && <p>Refreshing...</p>}
-      </div>
     </div>
   );
 };
