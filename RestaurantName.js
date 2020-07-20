@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { getStore } from "./fetchRestaurantData";
 
-const RestaurantName = ({ slug }) => {
+const RestaurantName = ({slug}) => {
   const { store, isLoading } = getStore(slug);
-  if (isLoading) return <p>Loading...</p>;
-  return <h1 className={"text-capitalize"}>Loja {store.slug}</h1>;
+  if (isLoading) return <div><p>Loading...</p></div>;
+  console.log(store);
+  return <h1 className={}>Loja {store}</h1>;
 };
 
 export default RestaurantName;

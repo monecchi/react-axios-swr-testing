@@ -12,11 +12,13 @@ const fetcher = url => axios.get(url).then(res => res.data); // with axios
 let apiURL = "https://pizzariameurancho.com.br/wp-json/mrp/v1";
 
 let storesURL = "/stores/";
-let storeURL = `/stores/${slug}`;
 
 // Get a single restaurant (store) data
 export const getStore = slug => {
-  const { data, error } = useSWR(apiURL + `/${slug}`, fetcher);
+  if (slug) {
+    slug = "betim";
+  }
+  const { data, error } = useSWR(apiURL + `/stores/${slug}`, fetcher);
 
   return {
     store: data,
@@ -27,10 +29,3 @@ export const getStore = slug => {
 
 // Get all restaurants (stores) data
 export const getStores = () => {};
-
-export function Avatar ({ id }) {
-  const { user, isLoading, isError } = useUser(id)
-  if (isLoading) return <Spinner />
-  if (isError) return <Error />
-  return <img src={user.avatar} />
-}

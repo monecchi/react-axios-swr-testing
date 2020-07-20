@@ -39,7 +39,7 @@ export const App = () => {
         <code>Testing: mutate()</code>
       </p>
       <RestaurantName slug="betim" />
-      <Restaurants />
+      {/*<Restaurants />*/}
       <button
         onClick={e => {
           e.preventDefault(), getRestaurants();

@@ -17,14 +17,14 @@ const Restaurants = () => {
   //fetcher
   //);
 
-  const { stores: { data }, error, isValidating, mutate } = useSWR(`https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/`, fetcher);
+  const { data, error, isValidating, mutate } = useSWR(`https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/`, fetcher);
 
   const handleMutate = () => {
     mutate();
   };
 
   if (error) return "An error has occurred.";
-  if (!stores) return "Loading...";
+  if (!data) return "Loading...";
   if (data) {
     let city = data.data.slug;
     let aberto = data[city].is_open;
