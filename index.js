@@ -39,7 +39,7 @@ export const App = () => {
         <code>Testing: mutate()</code>
       </p>
       
-      <RestaurantName slug="raul" />
+      <RestaurantName slug="betim" />
       {/*<Restaurants />*/}
       <button
         onClick={e => {
