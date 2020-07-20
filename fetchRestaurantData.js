@@ -24,7 +24,7 @@ export const getRestaurant = slug => {
     store: data,
     isLoading: !error && !data,
     isError: error,
-
+    isValidating
   };
 };
 
@@ -35,6 +35,7 @@ export const getAllRestaurants = () => {
   return {
     stores: data,
     isLoading: !error && !data,
-    isError: error
+    isError: error,
+    isValidating
   };
 };

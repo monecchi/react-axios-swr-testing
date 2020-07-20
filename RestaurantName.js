@@ -16,7 +16,7 @@ const RestaurantName = ({ slug }) => {
     const restaurant = store[0];
     console.log(restaurant);
   }
-  return <h1 className="text-capitalize">Loja {restaurant.slug}</h1>;
+  return <h2 className="text-capitalize">Loja {restaurant.slug}</h2>;
 };
 
 export default RestaurantName;
