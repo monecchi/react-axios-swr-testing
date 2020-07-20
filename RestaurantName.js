@@ -3,8 +3,8 @@ import { getStores } from "getStoresData";
 
 const RestaurantName = ({ slug }) => {
   const { store, isLoading } = getStore();
-  if (isLoading) return <Spinner />;
-  return <h1>Welcome back, {user.name}</h1>;
+  if (isLoading) return <p>Loading...</p>;
+  return <h1 className={"text-capitalize"}>Loja {store.slug}</h1>;
 };
 
 export default RestaurantName;

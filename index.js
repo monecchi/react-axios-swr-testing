@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import "./style.css";
 import axios from "axios";
 import Restaurants from "./Restaurants";
+import RestaurantName from "./ResturantName";
 
 export const App = () => {
   const [appState, setAppState] = useState({
@@ -37,6 +38,7 @@ export const App = () => {
       <p>
         <code>Testing: mutate()</code>
       </p>
+      <RestaurantName />
       <Restaurants />
       <button
         onClick={e => {
