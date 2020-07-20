@@ -40,6 +40,7 @@ export const App = () => {
       </p>
       
       <RestaurantName slug="betim" />
+      <RestaurantName slug="raul" />
       {/*<Restaurants />*/}
       <button
         onClick={e => {
