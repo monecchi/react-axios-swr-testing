@@ -12,9 +12,7 @@ let apiURL = "https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/";
 
 // Get a single restaurant (store) data
 export const getStore = slug => {
-  if (!this.slug) {
-    slug = "betim";
-  }
+  
   const { data, error } = useSWR(apiURL + `${slug}`, fetcher);
 
   return {
