@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { getStore } from "./fetchRestaurantData";
+import { getRestaurant } from "./fetchRestaurantData";
 
+/**
+ * Restaurant Name Component
+ */
 const RestaurantName = ({ slug }) => {
-  const { store, isLoading, isError } = getStore(slug);
+  const { store, isLoading, isError } = getRestaurant(slug);
   if (isLoading)
     return (
       <div>

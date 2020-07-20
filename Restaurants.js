@@ -1,23 +1,9 @@
 import React, { Component } from "react";
-import useSWR from "swr";
-import axios from "axios";
-
-// SWR, Mutate on data update or on request
-
-// const fetcher = (...args) => fetch(...args).then(res => res.json()) default fetcher
-// const fetcher = url => fetch(url).then(res => res.json()); // with fetch api
-
-const fetcher = url => axios.get(url).then(res => res.data); // with axios
-
-let apiURL = "https://pizzariameurancho.com.br/wp-json/mrp/v1";
+import { getRestaurants } from "./fetchRestaurantData";
 
 const Restaurants = () => {
-  //const { data, error, mutate } = useSWR(
-  //"https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/",
-  //fetcher
-  //);
 
-  const { data, error, isValidating, mutate } = useSWR(`https://pizzariameurancho.com.br/wp-json/mrp/v1/stores/`, fetcher);
+  const { data, error, isValidating, mutate } = getRestaurants();
 
   const handleMutate = () => {
     mutate();
